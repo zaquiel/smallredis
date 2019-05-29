@@ -11,7 +11,7 @@ namespace SmallRedis.App
 
             while (true)
             {
-                Console.Write("redisinho> ");
+                Console.Write("smallredis> ");
                 var command = Console.ReadLine();
 
                 if (command.Trim().ToLower() == "exit")
