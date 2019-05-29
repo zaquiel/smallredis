@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SmallRedis.Core.Services;
+using System;
 
 namespace SmallRedis.App
 {
@@ -6,7 +7,20 @@ namespace SmallRedis.App
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var consoleService = new ConsoleService();
+
+            while (true)
+            {
+                Console.Write("redisinho> ");
+                var command = Console.ReadLine();
+
+                if (command.Trim().ToLower() == "exit")
+                    break;
+
+                var commandReturn = consoleService.CommandExecute(command);
+
+                Console.WriteLine(commandReturn);
+            }
         }
     }
 }
